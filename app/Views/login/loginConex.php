@@ -1,4 +1,5 @@
 <?php 
+/* Modificar login */
 ?>
 <!doctype html>
 <html lang="en">

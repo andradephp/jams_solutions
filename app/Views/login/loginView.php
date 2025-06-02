@@ -12,20 +12,20 @@
 
     <!-- Logo -->
     <div class="mb-6">
-      <img src="ruta-a-tu-logo.png" alt="Logo de la empresa" class="mx-auto h-16">
+      <img src="imgLogin/jamSS.jpg" alt="Logo de la empresa" class="mx-auto h-16">
     </div>
 
     <h2 class="text-2xl font-bold text-white mb-6">Ingreso Clientes</h2>
 
-    <form class="space-y-5 text-left">
+    <form class="space-y-5 text-left" action="login.php" method="POST">
       <div>
         <label class="block mb-1 text-gray-300" for="email">Email</label>
-        <input type="email" id="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded text-white" placeholder="Correo electrónico" required>
+        <input type="email" name="email" id="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded text-white" placeholder="Correo electrónico" required>
       </div>
 
       <div>
         <label class="block mb-1 text-gray-300" for="password">Contraseña</label>
-        <input type="password" id="password" class="w-full p-3 bg-gray-700 border border-gray-600 rounded text-white" placeholder="Tu contraseña" required>
+        <input type="password" name="password" id="password" class="w-full p-3 bg-gray-700 border border-gray-600 rounded text-white" placeholder="Tu contraseña" required>
       </div>
 
       <div class="flex items-center justify-between text-sm text-gray-400">
@@ -33,13 +33,19 @@
           <input type="checkbox" class="mr-2 accent-red-600">
           Recuérdame
         </label>
-        <a href="#" class="hover:underline text-red-400">¿Has olvidado tu contraseña?</a>
+        <a href="/password" class="hover:underline text-red-400">¿Has olvidado tu contraseña?</a>
       </div>
 
       <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded transition">
         Ingresar
       </button>
     </form>
+
+    <!-- Enlace a Registro -->
+    <p class="mt-6 text-sm text-gray-400">
+      ¿No tienes una cuenta?
+      <a href="/registro" class="text-red-400 hover:underline">Regístrate aquí</a>
+    </p>
 
   </div>
 

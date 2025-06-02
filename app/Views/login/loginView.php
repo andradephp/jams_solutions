@@ -12,7 +12,7 @@
 
     <!-- Logo -->
     <div class="mb-6">
-      <img src="imgLogin/jamSS.jpg" alt="Logo de la empresa" class="mx-auto h-16">
+      <img src="./imgLogin/jamSS.jpg" alt="Logo de la empresa" class="mx-auto h-16">
     </div>
 
     <h2 class="text-2xl font-bold text-white mb-6">Ingreso Clientes</h2>

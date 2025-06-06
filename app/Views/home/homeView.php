@@ -39,7 +39,7 @@
             class="hover:text-red-500 transition-colors duration-200">PRODUCTOS</a>
           <a href="#contacto"
             class="hover:text-red-500 transition-colors duration-200">CONTACTANOS</a>
-          <a href="#"
+          <a href="/login"
             class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition-colors duration-200">Ingreso
             Clientes</a>
         </nav>

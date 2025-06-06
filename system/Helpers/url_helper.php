@@ -350,54 +350,37 @@ if (! function_exists('auto_link')) {
      * @param string $type  the type: email, url, or both
      * @param bool   $popup whether to create pop-up links
      */
-    function auto_link(string $str, string $type = 'both', bool $popup = false): string
-    {
-        // Find and replace any URLs.
-        if (
-            $type !== 'email'
-            && preg_match_all(
-                '#([a-z][a-z0-9+\-.]*://|www\.)[a-z0-9]+(-+[a-z0-9]+)*(\.[a-z0-9]+(-+[a-z0-9]+)*)+(/([^\s()<>;]+\w)?/?)?#i',
-                $str,
-                $matches,
-                PREG_OFFSET_CAPTURE | PREG_SET_ORDER,
-            ) >= 1
-        ) {
-            // Set our target HTML if using popup links.
-            $target = ($popup) ? ' target="_blank"' : '';
+   function auto_link(string $str, string $type = 'both', bool $popup = false): string
+{
+    $target = $popup ? ' target="_blank"' : '';
 
-            // We process the links in reverse order (last -> first) so that
-            // the returned string offsets from preg_match_all() are not
-            // moved as we add more HTML.
-            foreach (array_reverse($matches) as $match) {
-                // $match[0] is the matched string/link
-                // $match[1] is either a protocol prefix or 'www.'
-                //
-                // With PREG_OFFSET_CAPTURE, both of the above is an array,
-                // where the actual value is held in [0] and its offset at the [1] index.
-                $a   = '<a href="' . (strpos($match[1][0], '/') ? '' : 'http://') . $match[0][0] . '"' . $target . '>' . $match[0][0] . '</a>';
-                $str = substr_replace($str, $a, $match[0][1], strlen($match[0][0]));
-            }
-        }
-
-        // Find and replace any emails.
-        if (
-            $type !== 'url'
-            && preg_match_all(
-                '#([\w\.\-\+]+@[a-z0-9\-]+\.[a-z0-9\-\.]+[^[:punct:]\s])#i',
-                $str,
-                $matches,
-                PREG_OFFSET_CAPTURE,
-            ) >= 1
-        ) {
-            foreach (array_reverse($matches[0]) as $match) {
-                if (filter_var($match[0], FILTER_VALIDATE_EMAIL) !== false) {
-                    $str = substr_replace($str, safe_mailto($match[0]), $match[1], strlen($match[0]));
-                }
-            }
-        }
-
-        return $str;
+    // Detectar y convertir URLs
+    if ($type !== 'email') {
+        $str = preg_replace_callback(
+            '#\b((https?://|www\.)[^\s<>()]+)#i',
+            function ($matches) use ($target) {
+                $url = $matches[1];
+                $href = (strpos($url, 'http') === 0) ? $url : 'http://' . $url;
+                return '<a href="' . $href . '"' . $target . '>' . $url . '</a>';
+            },
+            $str
+        );
     }
+
+    // Detectar y convertir emails
+    if ($type !== 'url') {
+        $str = preg_replace_callback(
+            '/([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,})/i',
+            function ($matches) {
+                $email = $matches[1];
+                return '<a href="mailto:' . $email . '">' . $email . '</a>';
+            },
+            $str
+        );
+    }
+
+    return $str;
+}
 }
 
 if (! function_exists('prep_url')) {

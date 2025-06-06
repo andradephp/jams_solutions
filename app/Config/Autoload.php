@@ -20,6 +20,7 @@ use CodeIgniter\Config\AutoloadConfig;
  */
 class Autoload extends AutoloadConfig
 {
+    
     /**
      * -------------------------------------------------------------------
      * Namespaces
@@ -60,6 +61,9 @@ class Autoload extends AutoloadConfig
      */
     public $classmap = [];
 
+
+    public $helpers = ['url'];
+
     /**
      * -------------------------------------------------------------------
      * Files
@@ -88,5 +92,5 @@ class Autoload extends AutoloadConfig
      *
      * @var list<string>
      */
-    public $helpers = [];
+
 }

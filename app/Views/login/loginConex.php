@@ -7,30 +7,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-   <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-   <?php foreach($conexion as $users):?>
-        <tr>
-            <td><?php echo $users -> id_usuario ;?></td>
-            <td><?php echo $users -> nombre_usuario ;?></td>
-            <td><?php echo $users -> apellido_usuario ;?></td>
-            <td><?php echo $users -> telefono_usuario ;?></td>
-            <td><?php echo $users -> email_usuario ;?></td>
-        </tr>
-        <?php endforeach; ?>
-  </tbody>
-</table>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  <body class="bg-gray-100 p-6">
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border border-gray-300 rounded shadow">
+        <thead>
+          <tr class="bg-gray-200 text-gray-700 uppercase text-sm leading-normal">
+            <th class="py-3 px-6 text-left">#</th>
+            <th class="py-3 px-6 text-left">First</th>
+            <th class="py-3 px-6 text-left">Last</th>
+            <th class="py-3 px-6 text-left">Handle</th>
+            <th class="py-3 px-6 text-left">Email</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-600 text-sm font-light">
+          <?php foreach($conexion as $users): ?>
+            <tr class="border-b border-gray-200 hover:bg-gray-100">
+              <td class="py-3 px-6"><?php echo $users->id_usuario; ?></td>
+              <td class="py-3 px-6"><?php echo $users->nombre_usuario; ?></td>
+              <td class="py-3 px-6"><?php echo $users->apellido_usuario; ?></td>
+              <td class="py-3 px-6"><?php echo $users->telefono_usuario; ?></td>
+              <td class="py-3 px-6"><?php echo $users->email_usuario; ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>

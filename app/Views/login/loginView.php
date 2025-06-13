@@ -17,15 +17,15 @@
 
     <h2 class="text-2xl font-bold text-white mb-6">Ingreso Clientes</h2>
 
-    <form class="space-y-5 text-left" action="login.php" method="POST">
+    <form class="space-y-5 text-left" action="<?= base_url('/login/acceder');?>" method="POST">
       <div>
-        <label class="block mb-1 text-gray-300" for="email">Email</label>
-        <input type="email" name="email" id="email" class="w-full p-3 bg-gray-700 border border-gray-600 rounded text-white" placeholder="Correo electrónico" required>
+        <label class="block mb-1 text-gray-300" for="email">Usuario</label>
+        <input type="text" name="usuario" id="usuario" class="w-full p-3 bg-gray-700 border border-gray-600 rounded text-white" placeholder="Tu usuario" required>
       </div>
 
       <div>
         <label class="block mb-1 text-gray-300" for="password">Contraseña</label>
-        <input type="password" name="password" id="password" class="w-full p-3 bg-gray-700 border border-gray-600 rounded text-white" placeholder="Tu contraseña" required>
+        <input type="password" name="psw" id="psw" class="w-full p-3 bg-gray-700 border border-gray-600 rounded text-white" placeholder="Tu contraseña" required>
       </div>
 
       <div class="flex items-center justify-between text-sm text-gray-400">

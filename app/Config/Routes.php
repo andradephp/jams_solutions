@@ -31,6 +31,15 @@ $routes->get('/usuarios/editar/(:num)','Usuarios::editar/$1');
 $routes->get('/usuarios/eliminar/(:num)','Usuarios::eliminar/$1');
 $routes->post('/usuarios/actualizar/(:num)','Usuarios::actualizar/$1');
 
+//Rutas Suscripciones
+$routes->get('/suscripciones','Suscripciones::index');
+$routes->get('/suscripciones/crear','Suscripciones::crear');
+$routes->post('/suscripciones/guardar','Suscripciones::guardar');
+$routes->get('/suscripciones/editar/(:num)','Suscripciones::editar/$1');
+$routes->get('/suscripciones/eliminar/(:num)','Suscripciones::eliminar/$1');
+$routes->post('/suscripciones/actualizar/(:num)','Suscripciones::actualizar/$1');
+
+
 
 ?>
 

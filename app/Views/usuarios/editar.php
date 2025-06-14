@@ -17,7 +17,7 @@
             <img src="ruta-a-tu-logo.png" alt="Logo de la empresa" class="mx-auto h-14">
         </div>
 
-        <h2 class="text-xl font-bold text-white mb-5">Registro de Clientes</h2>
+        <h2 class="text-xl font-bold text-white mb-5">Editar cliente</h2>
 
 
         <form action="<?= base_url('/usuarios/actualizar/' . $usuario['id_usuario']); ?>" method="post" class="space-y-4 text-left text-sm">
